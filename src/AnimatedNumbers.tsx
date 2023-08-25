@@ -28,11 +28,10 @@ const NumberColumn = memo(({ digit, delta }: any) => {
     setPosition(`${number * 10}%`);
   };
   useEffect(() => {
-    console.log(digit, previousDigit);
     if (previousDigit != undefined)
       setAnimationClass(previousDigit !== digit ? delta : "");
+    setColumnToNumber(digit);
   }, [digit]);
-  useEffect(() => setColumnToNumber(digit), [digit]);
 
   return (
     <div className="number-animate-column-container">
