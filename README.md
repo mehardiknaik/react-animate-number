@@ -59,6 +59,21 @@ class Example extends Component {
 }
 ```
 
+## Customization
+
+Change the below css variale to modify the colour and animation speed
+
+```css
+:root {
+  /* Change the Animation Speed in ms or s */
+  --duration: 500ms;
+  /* Change the colour of the number when number will be incrementing */
+  --increment: #00b200;
+  /* Change the colour of the number when number will be decrementing */
+  --decerement: red;
+}
+```
+
 ## Options details
 
 Available options with example values:
