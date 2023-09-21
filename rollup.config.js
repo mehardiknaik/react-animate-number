@@ -17,7 +17,7 @@ export default [
         file: packageJson.main,
         format: "cjs",
         sourcemap: false,
-        name: "react-onboarding-swiper",
+        name: "react-animate-number",
       },
       {
         file: packageJson.module,

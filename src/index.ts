@@ -1,3 +1,3 @@
-import Onboarding from "./Onboarding";
-export type { OnboardingProps } from "./Onboarding.types";
-export default Onboarding;
+import AnimatedNumbers from "./AnimatedNumbers";
+export type { AnimatedNumbersProps } from "./AnimatedNumbers.types";
+export default AnimatedNumbers;
