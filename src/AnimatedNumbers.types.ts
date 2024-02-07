@@ -5,4 +5,5 @@ export interface AnimatedNumbersProps {
   className?: string;
   style?: CSSProperties;
   decimal?: number;
+  comma?: Boolean;
 }

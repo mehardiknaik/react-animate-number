@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react/dist";
 import AnimatedNumbers, { AnimatedNumbersProps } from "./index";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -27,11 +27,12 @@ type Story = StoryObj<typeof AnimatedNumbers>;
 export const Primary: Story = {
   // More on args: https://storybook.js.org/docs/react/writing-stories/args
   args: {
-    number: 123,
+    number: 1203,
     style: {
       fontSize: 20,
       // ["--duration" as string]: "1000ms",
     },
     decimal: 2,
+    comma: true,
   },
 };

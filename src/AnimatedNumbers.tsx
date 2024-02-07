@@ -2,17 +2,18 @@ import React, { memo, useEffect, useState } from "react";
 import usePrevious from "./usePrevious";
 import { AnimatedNumbersProps } from "./AnimatedNumbers.types";
 import "./style.css";
+import numberList from "./numberList";
 
-const formatForDisplay = (number: number, decimal: number) => {
-  return Math.max(number)
-    .toLocaleString("en-IN", {
-      minimumFractionDigits: decimal,
-      maximumFractionDigits: decimal,
-    })
-    .split("")
-    .reverse();
+const formatForDisplay = (number: number, decimal: number, comma: Boolean) => {
+  decimal = Math.abs(decimal);
+  const strNum: String = comma
+    ? Math.max(number).toLocaleString("en-IN", {
+        minimumFractionDigits: decimal,
+        maximumFractionDigits: decimal,
+      })
+    : Math.max(number).toFixed(decimal);
+  return strNum.split(""); //.reverse();
 };
-
 const DecimalColumn: React.FC<{ digit: string }> = ({ digit }) => {
   return (
     <div>
@@ -24,8 +25,9 @@ const NumberColumn = memo(({ digit, delta }: any) => {
   const [position, setPosition] = useState<string>("0%");
   const [animationClass, setAnimationClass] = useState<string>("");
   const previousDigit = usePrevious(digit);
-  const setColumnToNumber = (number: number) => {
-    setPosition(`${number * 10}%`);
+  const setColumnToNumber = (number: any) => {
+    //@ts-ignore
+    setPosition(`-${numberList?.[number] || 0}%`);
   };
   useEffect(() => {
     if (previousDigit != undefined)
@@ -40,13 +42,13 @@ const NumberColumn = memo(({ digit, delta }: any) => {
         style={{ transform: `translateY(${position})` }}
         onTransitionEnd={() => setAnimationClass("")}
       >
-        {[9, 8, 7, 6, 5, 4, 3, 2, 1, 0].map((num) => (
+        {Object.keys(numberList).map((num) => (
           <div key={num} className="number-animate-digit">
             <span>{num}</span>
           </div>
         ))}
       </div>
-      <span className="number-placeholder">0</span>
+      <span className="number-placeholder">{digit}</span>
     </div>
   );
 });
@@ -56,20 +58,23 @@ const AnimatedNumbers = ({
   className = "",
   style,
   decimal = 0,
+  comma = false,
 }: AnimatedNumbersProps) => {
-  const numArray = formatForDisplay(number, decimal);
+  const numArray = formatForDisplay(number, decimal, comma);
   const previousNumber: any = usePrevious(number);
 
   let delta: string = "";
   if (number > previousNumber) delta = "increase";
   if (number < previousNumber) delta = "decrease";
+
   return (
     <div className={`number-animate-view ${className}`} style={style}>
-      {numArray.map((number: any, index) =>
-        !isNaN(number) ? (
-          <NumberColumn key={index} digit={parseFloat(number)} delta={delta} />
+      {numArray.map((digit: any, index: number) =>
+        //@ts-ignore
+        !isNaN(numberList[digit]) ? (
+          <NumberColumn key={index} digit={digit} delta={delta} />
         ) : (
-          <DecimalColumn key={index} digit={number} />
+          <DecimalColumn key={index} digit={digit} />
         )
       )}
     </div>

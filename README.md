@@ -32,6 +32,7 @@ const App = () => {
       className="text-yellow" // specify the Class name (Optional)
       style={{ background: "red" }} // specify the Style (Optional)
       decimal={2} // specify the Decimal Places default to 0 (Optional)
+      comma //specify the if want comma seperated default to false (Optional)
     />
   );
 };
@@ -53,6 +54,7 @@ class Example extends Component {
         className="text-yellow" // specify the Class name (Optional)
         style={{ background: "red" }} // specify the Style (Optional)
         decimal={2} // specify the Decimal Places default to 0 (Optional)
+        comma //specify the if want comma seperated default to false (Optional)
       />
     );
   }
@@ -84,6 +86,7 @@ Available options with example values:
   className="text-yellow"
   style={{ background: "red" }}
   decimal={2}
+  comma
 />
 ```
 
@@ -93,6 +96,7 @@ Available options with example values:
 | `className` |   String   |    no    |    -     | Provide the Class Name.                                    |
 | `style`     | CSS Object |    no    |    -     | Provide the Style.                                         |
 | `decimal`   |   Number   |    no    |    0     | Provide the Decimal places you want to show to the number. |
+| `comma`     |  Boolean   |    no    |  false   | Provide the Comma seperation if you want.                  |
 
 ## License
 
