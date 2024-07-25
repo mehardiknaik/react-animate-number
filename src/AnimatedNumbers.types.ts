@@ -5,5 +5,11 @@ export interface AnimatedNumbersProps {
   className?: string;
   style?: CSSProperties;
   decimal?: number;
-  comma?: Boolean;
+  comma?: boolean;
+  reverse?: boolean
 }
+
+export type DeltaType="increase" | "decrease" | ""
+
+
+export interface NumberColumnProps { digit: number; delta: DeltaType; reverse: boolean }

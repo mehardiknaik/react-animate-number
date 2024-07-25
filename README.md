@@ -33,6 +33,7 @@ const App = () => {
       style={{ background: "red" }} // specify the Style (Optional)
       decimal={2} // specify the Decimal Places default to 0 (Optional)
       comma //specify the if want comma seperated default to false (Optional)
+      reverse //specify the if want reverse default to false (Optional)
     />
   );
 };
@@ -55,6 +56,7 @@ class Example extends Component {
         style={{ background: "red" }} // specify the Style (Optional)
         decimal={2} // specify the Decimal Places default to 0 (Optional)
         comma //specify the if want comma seperated default to false (Optional)
+        reverse //specify the if want reverse default to false (Optional)
       />
     );
   }
@@ -87,6 +89,7 @@ Available options with example values:
   style={{ background: "red" }}
   decimal={2}
   comma
+  reverse
 />
 ```
 

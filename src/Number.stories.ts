@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react/dist";
+import { Meta, StoryObj } from "@storybook/react";
 import AnimatedNumbers, { AnimatedNumbersProps } from "./index";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -8,16 +8,6 @@ const meta: Meta<AnimatedNumbersProps> = {
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
   tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {
-    // number: { control: "number" },
-    // decimal: { control: "number" },
-    // style: {
-    //   fontSize: "number",
-    // },
-    // className: {
-    // control: "string",
-    // },
-  },
 };
 
 export default meta;
